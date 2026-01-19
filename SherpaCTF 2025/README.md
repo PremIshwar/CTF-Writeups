@@ -1,6 +1,7 @@
 # SHERPA CTF 2025 - A Challenging Offline CTF
-
-<img width="1500" height="844" alt="image" src="https://github.com/user-attachments/assets/1ae1833a-6da0-4767-bf1a-570342dc5b8d" />
+<p align="center" width="100%">
+<img width="500" height="844" alt="image" src="https://github.com/user-attachments/assets/1ae1833a-6da0-4767-bf1a-570342dc5b8d" />
+</p>
 
 Hi! Welcome to my writeup on SherpaCTF 2025. As mentioned in the title, this CTF was fully offline, meaning no AI or even Google, although printed notes were allowed. This CTF was the first of its kind in Malaysia and it was a quite a new experience. However, I did manage to get into the finals and scored 7th place!
 
