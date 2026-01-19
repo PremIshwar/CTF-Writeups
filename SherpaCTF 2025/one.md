@@ -15,7 +15,7 @@ cipher = '''
 
 print(cipher[::-1])
 ```
-Note: With the luxury of the Internet, I found out that this could have been solve with a simple ```cat one.txt | rev```.
+Note: With the luxury of the Internet, I found out that this could have been solved with a simple ```cat one.txt | rev```.
 
 Running the script gives us the following text:
 
