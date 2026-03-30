@@ -5,7 +5,7 @@ Note: No brute forcing, nor scanning is required at all._
 \
 We are given an APK to analyze. This is probably the second time I've dealt with APKs in a CTF environment, so this question was a bit intimidating. I started off by opening the APK in JADX-GUI. In MainActivity(), there was a backdoorC2() function.
 <br><br>
-```
+```Java
 private final void backdoorC2() {
 ThreadsKt.thread((31 & 1) != 0, (31 & 2) != 0 ? false : false, (31 & 4) != 0 ? null : null, (31 & 8) != 0 ? null : null, (31 & 16) != 0 ? -1 : 0, new Function0<Unit>() { // from class: com.example.protonx1337.MainActivity.backdoorC2.1
     {
@@ -58,7 +58,7 @@ ThreadsKt.thread((31 & 1) != 0, (31 & 2) != 0 ? false : false, (31 & 4) != 0 ? n
 \
 In this function, we can actually see the URL being constructed and a connection being opened.
 <br><br>
-```
+```Java
 String d1 = LiveLiterals$MainActivityKt.INSTANCE.m5425x506ff06();
 String d2 = LiveLiterals$MainActivityKt.INSTANCE.m5426xcc12e607();
 URLConnection uRLConnectionOpenConnection = new URL(d1 + d2).openConnection();
@@ -67,7 +67,7 @@ URLConnection uRLConnectionOpenConnection = new URL(d1 + d2).openConnection();
 \
 So, C2 Server is URL(d1 + d2). Navigating to LiveLiteral for the MainActivity, there is an if statement that changes the string value of the two variables. 
 <br><br>
-```
+```Java
 public final String m5420xb46d800b() {
   if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
       return f93xb46d800b;
