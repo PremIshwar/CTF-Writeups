@@ -7,7 +7,7 @@ _In malware analysis, you can either statically analyze the assembly codes direc
 \
 We are given a .exe file. I tried to run it in AnyRun, but I couldn't get any good results (not to mention to long wait time). I decided to disassemble the .exe in Ghidra and take a look at the code. The main function calls the check_flag() function:
 <br><br>
-```
+```C
 
 /* check_flag() */
 
@@ -57,7 +57,7 @@ It seems like the flag is just the MD5 hash of the following string: ```C:\Users
 \
 I used this python script to calculate the hash and print the flag.
 <br><br>
-```
+```python
 import hashlib
 path_string = r"C:\Users\HACK10{f4k3_fl4g_bu7_y0u_4r3_in_7h3_righ7_7r4ck}\Desktop\local.txt"
 md5_hash = hashlib.md5(path_string.encode()).hexdigest()
