@@ -1,10 +1,10 @@
 # Detonator
 _In malware analysis, you can either statically analyze the assembly codes directly, or you can create a snapshot of your sandbox and detonate it inside._
-\
-\
+
+<p align="center">
 <img width="793" height="82" alt="image" src="https://github.com/user-attachments/assets/fcada87c-69ae-4f80-b8ce-5475f89c31d3" />
-\
-\
+</p>
+
 We are given a .exe file. I tried to run it in AnyRun, but I couldn't get any good results (not to mention to long wait time). I decided to disassemble the .exe in Ghidra and take a look at the code. The main function calls the check_flag() function:
 <br><br>
 ```C
