@@ -1,8 +1,8 @@
 # Proton X1337
 _This file seems normal and safe. But it is actually maliciously, secretly transmitting data to a C2. Identify the server, and find the flag.
 Note: No brute forcing, nor scanning is required at all._
-\
-\
+
+
 We are given an APK to analyze. This is probably the second time I've dealt with APKs in a CTF environment, so this question was a bit intimidating. I started off by opening the APK in JADX-GUI. In MainActivity(), there was a backdoorC2() function.
 <br><br>
 ```Java
@@ -54,8 +54,8 @@ ThreadsKt.thread((31 & 1) != 0, (31 & 2) != 0 ? false : false, (31 & 4) != 0 ? n
 });
 }
 ```
-\
-\
+
+
 In this function, we can actually see the URL being constructed and a connection being opened.
 <br><br>
 ```Java
@@ -92,8 +92,8 @@ public final String m5421xb774b583() {
     return stateLiveLiteral.getValue();
 }
 ```
-\
-\
+
+
 After a quick Google search, LiveLiterals are always disabled by default in release-build APKs. So, we can deduce that the values would be
 <br><br>
 ```
@@ -101,21 +101,24 @@ d1 = f98x506ff06
 d2 = f99xcc12e607
 C2 server = f98x506ff06 + f99xcc12e607
 ```
-\
-\
+
+
 Doing a string search, we can find the values of th strings
-\
-\
-<img width="684" height="150" alt="image" src="https://github.com/user-attachments/assets/aaa2b202-98df-4a4c-a86a-a0ffdbf0b96d" />
-\
-\
+
+
+<p align="center">
+<img width="600" height="150" alt="image" src="https://github.com/user-attachments/assets/aaa2b202-98df-4a4c-a86a-a0ffdbf0b96d" />
+</p>
+
+
 So the C2 server is https://appsecmy.com/pages/liga-ctf-2026. But this is not the flag, let's take a look at the website.
-\
-\
-<img width="975" height="435" alt="image" src="https://github.com/user-attachments/assets/5847093b-4f38-426d-9fba-fc347be680eb" />
-\
-\
+
+<p align="center">
+<img width="600" height="435" alt="image" src="https://github.com/user-attachments/assets/5847093b-4f38-426d-9fba-fc347be680eb" />
+</p>
+
 Ahh yes, advertising. A quick look at the source code gives us the flag.
-\
-\
-<img width="567" height="116" alt="image" src="https://github.com/user-attachments/assets/5cdbb618-400a-4a38-96cd-7b04b175fe83" />
+
+<p align="center">
+<img width="500" height="116" alt="image" src="https://github.com/user-attachments/assets/5cdbb618-400a-4a38-96cd-7b04b175fe83" />
+</p>
