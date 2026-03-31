@@ -1,14 +1,15 @@
 # Is It Stacy, Is It Becky, Is It Kesha?
 _Can you find out who's email address has access?
 Kindly submit it in the form of HACK10{email@domain.com}_
-\
-\
+
+
 Another .exe reverse engineering challenge. I dedcided to opent this on in dnSpy since it is a .NET application.
-\
-\
+
+
+<p align="center">
 <img width="1021" height="80" alt="image" src="https://github.com/user-attachments/assets/36d5c7e9-96f0-47a5-b3ad-13c7566c1dfa" />
-\
-\
+</p>
+
 The main function had a wordy variable but it kinda looked like a fake flag. I decided to focus on this part of the main function.
 <br><br>
 ```C#
@@ -61,8 +62,8 @@ foreach (string line in lines)
 string[] array = null;
 flag = false;
 ```
-\
-\
+
+
 Here is a snippet of the function. All this function does is check if the email is in a [email list] (https://appsecmy.com/d22646ad92dfaa334f9fa1c3579b4801.txt). We can actually view this email list as it public. Now let's look at the HashEmail() function.
 <br><br>
 ```C#
@@ -84,9 +85,10 @@ return text;
 }
 ```
 This seems to be just using MD5 hashing. Now, we can actually easily figure out what email is the flag. I downloaded the email list and saved the hardcoed hash into ```hashes.txt```. Then, I used JohnTheRipper to crack the hash with the email list as the wordlist.
-\
-\
-<img width="975" height="298" alt="image" src="https://github.com/user-attachments/assets/4cfb4b94-e3bf-4d73-9e6c-6553dca92670" />
-\
-\
+
+
+<p align="center">
+<img width="600" height="298" alt="image" src="https://github.com/user-attachments/assets/4cfb4b94-e3bf-4d73-9e6c-6553dca92670" />
+</p>
+
 Flag: ```HACK10{wa00d6d88epd0z1x6gro@rediffmail.com}```
