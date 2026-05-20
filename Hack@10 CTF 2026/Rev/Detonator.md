@@ -1,13 +1,13 @@
 # Detonator
+
 _In malware analysis, you can either statically analyze the assembly codes directly, or you can create a snapshot of your sandbox and detonate it inside._
 
-<p align="center">
-<img width="793" height="82" alt="image" src="https://github.com/user-attachments/assets/fcada87c-69ae-4f80-b8ce-5475f89c31d3" />
-</p>
+<div align="center"><img src="https://github.com/user-attachments/assets/fcada87c-69ae-4f80-b8ce-5475f89c31d3" alt="image"></div>
 
-We are given a .exe file. I tried to run it in AnyRun, but I couldn't get any good results (not to mention to long wait time). I decided to disassemble the .exe in Ghidra and take a look at the code. The main function calls the check_flag() function:
-<br><br>
-```C
+We are given a .exe file. I tried to run it in AnyRun, but I couldn't get any good results (not to mention to long wait time). I decided to disassemble the .exe in Ghidra and take a look at the code. The main function calls the check\_flag() function:\
+<br>
+
+```c
 
 /* check_flag() */
 
@@ -52,11 +52,12 @@ void check_flag(void)
   return;
 }
 ```
-It seems like the flag is just the MD5 hash of the following string: ```C:\Users\HACK10{f4k3_fl4g_bu7_y0u_4r3_in_7h3_righ7_7r4ck}\Desktop\local.txt```
+
+It seems like the flag is just the MD5 hash of the following string: `C:\Users\HACK10{f4k3_fl4g_bu7_y0u_4r3_in_7h3_righ7_7r4ck}\Desktop\local.txt`\
 \
-\
-I used this python script to calculate the hash and print the flag.
-<br><br>
+I used this python script to calculate the hash and print the flag.\
+<br>
+
 ```python
 import hashlib
 path_string = r"C:\Users\HACK10{f4k3_fl4g_bu7_y0u_4r3_in_7h3_righ7_7r4ck}\Desktop\local.txt"
@@ -64,4 +65,5 @@ md5_hash = hashlib.md5(path_string.encode()).hexdigest()
 flag = f"HACK10{{{md5_hash}}}"
 print(flag)
 ```
-Flag: ```HACK10{be029cf0e9f2eaa5f80489343630befb}```
+
+Flag: `HACK10{be029cf0e9f2eaa5f80489343630befb}`

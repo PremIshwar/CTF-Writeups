@@ -2,9 +2,7 @@
 
 Once again, we find the challenge on the Deskop.
 
-<p align="center" width="100%">
-<img width="948" height="582" alt="image" src="https://github.com/user-attachments/assets/deba59a6-f632-4295-a8b6-c5afb4856305" />
-</p>
+<div align="center"><img src="https://github.com/user-attachments/assets/deba59a6-f632-4295-a8b6-c5afb4856305" alt="image" width="563"></div>
 
 Now, since we don't have access to the Internet, we can't simply use any online tool to reverse this. So I wrote a simple python script that would reverse the string.
 
@@ -15,11 +13,12 @@ cipher = '''
 
 print(cipher[::-1])
 ```
-Note: With the luxury of the Internet, I found out that this could have been solved with a simple ```cat one.txt | rev```.
+
+Note: With the luxury of the Internet, I found out that this could have been solved with a simple `cat one.txt | rev`.
 
 Running the script gives us the following text:
 
-```text
+```
 Whoever finds this story next will have to think backwards before they can claim the flag.
 She closed the terminal, left the file as a quiet challenge on the desktop, and locked the back door behind her.
 Smiling, she whispered, 'Sometimes you do not need new tools, you just need to read things in reverse.'
@@ -46,4 +45,4 @@ Everyone else had gone home, but the network still whispered secrets in plain te
 On the outskirts of the terminal, a lone analyst stared at the scrolling logs.
 ```
 
-From which we can extract the flag and the password for user "two": SHERPACTF25{I_Kn3w_it_44}
+From which we can extract the flag and the password for user "two": SHERPACTF25{I\_Kn3w\_it\_44}

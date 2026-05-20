@@ -68,7 +68,9 @@ Hmm... it was already more than 5 minutes since the VM has been on and there wer
 
 Ok, it seems to be a .tar file with backups of the two files earlier. And its owned by root. There must be some sort of backup script running, however my earlier `ps aux` didn't catch anything. As a test, I created a test file in `~/books` to see if the backup file changes. After a minute or so, there it was.
 
-<div align="center"><img src="https://github.com/user-attachments/assets/d4d96bcf-17f0-4a2d-a415-77d1eefb2f33" alt="image" height="113" width="500"> <img src="https://github.com/user-attachments/assets/b4942a7e-49e4-4703-8d10-02fbafdae28a" alt="image" height="142" width="500"></div>
+<div align="center"><img src="https://github.com/user-attachments/assets/d4d96bcf-17f0-4a2d-a415-77d1eefb2f33" alt="image" width="563"></div>
+
+<img src="https://github.com/user-attachments/assets/b4942a7e-49e4-4703-8d10-02fbafdae28a" alt="image" width="563">
 
 I did some looking around and some GPT-ing about this, to check if it is a viable PE vector. Turns out, its called a cron wildcard PE. After some back and forth with ChatGPT, I finally got an exploit that worked:
 
@@ -92,8 +94,8 @@ When the TAR script runs as root, `shell.sh` is executed and does the following:
 
 Then, we can spawn a root shell with `/tmp/rootbash -p`
 
-<div align="center"><img src="https://github.com/user-attachments/assets/553e76d4-f7fb-432a-a241-4e124ed92cdf" alt="image" height="205" width="600"></div>
+<div align="center"><img src="https://github.com/user-attachments/assets/553e76d4-f7fb-432a-a241-4e124ed92cdf" alt="image" width="563"></div>
 
 Great! We can now read the flag file.
 
-<div align="center"><img src="https://github.com/user-attachments/assets/203cf478-176b-4cbc-a1e3-7bd0da15dbb2" alt="image" height="278" width="600"></div>
+<div align="center"><img src="https://github.com/user-attachments/assets/203cf478-176b-4cbc-a1e3-7bd0da15dbb2" alt="image" width="563"></div>
