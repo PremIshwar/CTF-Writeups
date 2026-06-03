@@ -18,13 +18,13 @@ PORT   STATE SERVICE VERSION
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-![alt text](images/image.png)
+![](images/image.png)
 
 FTP aon login successful, got creds.txt which contained `user1337:notsoleet`
 
 Using this, could get SSH login
 
-![alt text](images/image-1.png)
+![](images/image-1.png)
 
 ## Privelege Escalation
 
