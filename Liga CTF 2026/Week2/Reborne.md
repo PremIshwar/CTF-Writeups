@@ -54,7 +54,7 @@ ftp> ls
 
 I downloaded both files. The hint was encoded with base64, these are the contents after decoding:
 
-![alt text](images/image-12.png)
+![](images/image-12.png)
 
 --_-- Rick rolled.
 
@@ -70,15 +70,15 @@ index.html              [Status: 200, Size: 10960, Words: 3505, Lines: 379, Dura
 server-status           [Status: 403, Size: 280, Words: 20, Lines: 10, Duration: 10ms]
 :: Progress: [4614/4614] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::
 ```
-![alt text](images/image-13.png)
+![](images/image-13.png)
 
 After looking around for a while, I found this page
 
-![alt text](images/image-14.png)
+![](images/image-14.png)
 
 I added mainframe.local to my /etc/hosts and got this page:
 
-![alt text](images/image-15.png)
+![](images/image-15.png)
 
 Going to robots.txt of mainfram.local, we get this:
 
@@ -103,12 +103,12 @@ Disallow: /_home/
 
 Hmm, something at /password.php?id=2
 
-![alt text](images/image-16.png)
+![](images/image-16.png)
 
 
 Also, found a page at  `/lfg/gohere/alittlebitmore/almostthere/`
 
-![alt text](images/image-18.png)
+![](images/image-18.png)
 
 Going to [ap0k4l1p5.github.io/talesofcred.html ](https://ap0k4l1p5.github.io/talesofcred.html), there is a huge lore dump with some hidden leetspeak. I copied the text and extracted the leetspeak with GPT bro (I am lazy).
 
@@ -129,7 +129,7 @@ Un17yW34v3r5
 
 I then used Hydra to brute force an SSH login, with the username apokalips (since it's the only name I got so far).
 
-![alt text](images/image-17.png)
+![](images/image-17.png)
 
 ```
 apokalips@etherborne:~$ ls
@@ -151,19 +151,19 @@ User apokalips may run the following commands on etherborne:
 ```
 Looking dash up in GTFOBins
 
-![alt text](images/image-19.png)
+![](images/image-19.png)
 
 So, I just tried running `sudo dash`
 
-![alt text](images/image-20.png)
+![](images/image-20.png)
 
-![alt text](images/image-21.png)
+![](images/image-21.png)
 
 Looks like the file is locked with GPG. After looking around for a while, I found a [writeup](https://vicevirus.github.io/posts/etherborne-apokalips-box/) of a variant of this machine, and got the hint of Steganography.
 
 I downloaded the image from `index.html` and used stegseek to extract the password
 
-![alt text](images/image-22.png) 
+![](images/image-22.png) 
 
 The password is `H3J35'S_F0R3S4W_T4LES`. Using this I unlocked the flag file with `gpg root.txt.gpg`
 
@@ -174,7 +174,7 @@ You think you made it, dont you? :D
 
 Fair enough I guess, since the writeup up until this point was online. Time to look deeper. I did a search: `find / -name "*.txt" 2>/dev/null`
 
-![alt text](images/image-23.png)
+![](images/image-23.png)
 
 There it is :)
 
