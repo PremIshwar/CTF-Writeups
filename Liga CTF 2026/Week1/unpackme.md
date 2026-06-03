@@ -6,7 +6,7 @@ Packing is a technique used by malware to obfuscate its functionalities. Malware
 
 With that out of the way, your first task is to identify the packer used for this binary, and unpack it. Provide the md5 hash of the unpacked file as your flag. Example: OWASPKL{23ac7b66851387b96a20672b5c0dc856}
 
-![alt text](images/image.png)
+![](images/image.png)
 
 ```
 md5sum unpackme0
@@ -19,7 +19,7 @@ Well done, by now you should hopefully understand more about packed binaries. Th
 
 Your next task is the same: identify the packer used for this binary, and unpack it. Instead of getting the file hash, the flag is hidden in the unpacked file as a string. Format: OWASPKL{Im_A_Flag}
 
-![alt text](images/image-1.png)
+![](images/image-1.png)
 
 Doesnt seem to be packed by UPX. But checking strings says otherwise
 
@@ -31,15 +31,15 @@ UPX!u
 ```
 Looking and comparing the tail of unpackme1 and unpackme0
 
-![alt text](images/image-2.png)
+![](images/image-2.png)
 
 Using Bless I changed ```VQY``` to ```UPX`` and now we can unpack the file!
 
-![alt text](images/image-3.png)
+![](images/image-3.png)
 
 Using strings, we can now get the flag
 
-![alt text](images/image-4.png)
+![](images/image-4.png)
 
 
 ## unpackme2 - Medium (Post-Event Solve)
@@ -54,7 +54,7 @@ This time the file is an exe
 
 Opening in DIE, we get the packer name
 
-![alt text](images/image-6.png)
+![](images/image-6.png)
 
 I found a few videos on how to unpack ASPACKed programs using x32dbg and spent a long time trying to do so. Apparently, we dont even need to do that. 
 
@@ -70,7 +70,7 @@ LoadLibraryW
 
 At each breakpoint, I run to user code and followed the dump of EAX to see its contents
 
-![alt text](images/image-12.png)
+![](images/image-12.png)
 
 I at VirtualProtect, we find the flag in plaintex tin the dump!
 
