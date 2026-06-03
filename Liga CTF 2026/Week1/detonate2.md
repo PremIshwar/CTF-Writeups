@@ -1,4 +1,4 @@
-# Detoante2 (Easy)
+# Detonate 2 (Easy)
 
 In malware analysis, you can either statically analyze the assembly codes directly, or you can create a snapshot of your sandbox and detonate it inside.
 
@@ -8,7 +8,7 @@ Flag format: OWASPKL{xxx}
 
 I did not do as the question asked an opened the file in DIE to look at the strings
 
-![alt text](images/image-10.png)
+![](images/image-10.png)
 
 Similar to Proton 1337, I also recognized the fake flagas and how it stores it in Desktop. It was similar to this: https://pis-blog.gitbook.io/blog-of-pi/hack-10-ctf-2026/rev/detonator
 
