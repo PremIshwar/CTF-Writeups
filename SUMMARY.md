@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Welcome](README.md)
-* [Liga CTF 2026](liga-ctf-2026/README.md)
+* [Liga CTF 2026](Liga CTF 2026/README.md)
   * [Reverse Engineering](liga-ctf-2026/Week1/README.md)
       * [Deadlocker](liga-ctf-2026/Week1/deadlocker.md)
       * [Detonate 2](liga-ctf-2026/Week1/detonate2.md)
