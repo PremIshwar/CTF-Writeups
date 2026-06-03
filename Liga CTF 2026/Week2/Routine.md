@@ -24,7 +24,7 @@ Nmap done: 1 IP address (1 host up) scanned in 20.36 seconds
 
 SSH and HTTP open. HTTP had a Grafana login page
 
-![alt text](images/image-7.png)
+![](images/image-7.png)
 
 Did some fuzzing with `ffuf -w /usr/share/wordlists/dirb/common.txt -u http://172.16.1.121:3000/FUZZ -fs 29`
 
@@ -51,7 +51,7 @@ I maanged to get the grafana.db with this command:
 
 In the db, we get some creds:
 
-![alt text](images/image-8.png)
+![](images/image-8.png)
 
 After trying the credentials with SSH, I finally get a hit with `tellytubby:V4lor4nt-Anti-cHEAT`
 
@@ -105,7 +105,7 @@ for user in users:
 
 There are a bunch of backups in the dir mentioned in the script. However, we can;t access any of them:
 
-![alt text](images/image-9.png)
+![](images/image-9.png)
 
 In the comments, it mentioned that this script in called by `backup.sh` . I found the script in `/opt`
 
