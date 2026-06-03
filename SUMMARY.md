@@ -14,7 +14,6 @@
     * [Routine](<Liga CTF 2026/Week2/Routine.md>)
     * [Reborne](<Liga CTF 2026/Week2/Reborne.md>)
     * [Chain of Attacks](<Liga CTF 2026/Week2/ChainOfAttack.md>)
-* [TCM Operation Breadcrumbs](<Operation Breadcrumbs/README.md>)
 * [Hack@10 CTF 2026](hack-10-ctf-2026/README.md)
   * [Boot2Root](hack-10-ctf-2026/boot2root/README.md)
     * [Freshman](<Hack@10 CTF 2026/Boot2Root/Freshman.md>)
