@@ -4,7 +4,7 @@ This APK file is malicious. It secretly talks to a C2 Server. Identify the C2 Se
 
 I put the APK into VirusTotal
 
-![alt text](images/image-8.png)
+![](images/image-8.png)
 
 Ok, so maybe this would be considered cheating (or maybe even luck), but I actually recognzed the package name of the APK Proton X1337 for Hack@10 CTF. It a similar question where we had to find the C2 server as well. This APK contacted the same URL as well, which is the Liga CTF welcome page.
 
