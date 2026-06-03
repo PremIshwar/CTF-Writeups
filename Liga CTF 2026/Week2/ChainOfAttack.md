@@ -16,13 +16,13 @@ PORT     STATE SERVICE         VERSION
 
 Aside from the open IMAP port, port 8080 shows an Apache2 Default Page.
 
-![alt text](images/image-10.png)
+![](images/image-10.png)
 
 Port 9090 is a webmin login page
 
-![alt text](images/image-11.png)
+![](images/image-11.png)
 
-![alt text](images/image-24.png)
+![](images/image-24.png)
 
 After looking around annd not being able to get a foothold, I looked at the machine itself and noticed we have 2 possible usernames
 
@@ -33,9 +33,9 @@ profapokalips
 
 I tried some default passwords first and managed to get a login for both accounts using `admin` (which also was in the machine message)
 
-![alt text](images/image-25.png)
+![](images/image-25.png)
 
-![alt text](images/image-26.png)
+![](images/image-26.png)
 
 
 ### Summary of Email Communications
@@ -54,7 +54,7 @@ So final credentials, `kdjebat:actuallyidk123@`.
 
 I added `chain` to my hosts file and visited port `/ritecms`.
 
-![alt text](images/image-27.png)
+![](images/image-27.png)
 
 Fuzz with `ffuf -w /usr/share/wordlists/dirb/big.txt  -u http://chain:8080/ritecms/FUZZ`:
 
@@ -75,15 +75,15 @@ After searching about RiteCMS, I found that the login page is at `admin.php`.
 
 I used the credentials we got and logged in. I went to the file manager (as it was mentioned in the emails) and found that I can access `.htaccess`.
 
-![alt text](images/image-29.png)
+![](images/image-29.png)
 
 I deleted it to disable any restrictions on file upload. Now to upload a simple php webshell to `/media'
 
-![alt text](images/image-33.png)
+![](images/image-33.png)
 
 With this command, we can read the user flag: `http://chain:8080/ritecms/media/shell.php?cmd=cat%20../../../local.txt`.
 
-![alt text](images/image-30.png)
+![](images/image-30.png)
 
 
 ## Chain of Attacks - II
@@ -130,7 +130,7 @@ We are logged in!
 
 I noticed a tiny terminal button in the sidebar and clicked it. It opened a root session!
 
-![alt text](images/image-32.png)
+![](images/image-32.png)
 
 Flag: `OWASPKL{68e8511198425c0cbbb3f0d182314afd}`
 
