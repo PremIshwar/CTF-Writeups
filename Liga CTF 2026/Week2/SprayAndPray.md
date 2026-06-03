@@ -27,7 +27,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.98 seconds
 
 We only have SSH. Let's try to use Hydra to brute force login
 
-![alt text](images/image-2.png)
+![](images/image-2.png)
 
 We got the creds `abel:angel1`. After connection, the flag can be found in the Desktop
 
@@ -46,7 +46,7 @@ Pivot to another user.
 
 Looking at the home dir, we can see the users on the machine
 
-![alt text](images/image-3.png)
+![](images/image-3.png)
 
 We couldnt directly cd into any of them, since that would be too easy. There is a juicy looking file in abel's Documents: Minit_Mesyuarat_2026_Password_Guideline.docx
 
@@ -54,12 +54,12 @@ I downloaded the file using sftp onto my machine to take a look at it.
 
 Some things of note:
 
-![alt text](images/image-5.png)
+![](images/image-5.png)
 
 I generated a user list using the usernames and also a password list using the passwords I got from the file. I then ran Hydra and got a match `niki:abel_0411@weekndbuk1tj4lil`
 
 
-![alt text](images/image-6.png)
+![](images/image-6.png)
 
 The second flag is found on Niki's desktop
 
