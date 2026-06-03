@@ -21,7 +21,7 @@ _A0Z3Y_3H
 
 I just put into CyberChef to see what i would get
 
-![alt text](images/image-7.png)
+![](images/image-7.png)
 
 Ok its jumbled up, here's the flag after some rearranging
 
