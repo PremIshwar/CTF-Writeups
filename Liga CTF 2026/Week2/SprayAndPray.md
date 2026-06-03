@@ -1,4 +1,4 @@
-# Spray and Pray Series (Easy)
+# Spray and Pray
 
 ## Spray and Pray - I
 
@@ -27,7 +27,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.98 seconds
 
 We only have SSH. Let's try to use Hydra to brute force login
 
-![](images/image-2.png)
+![](<../../.gitbook/assets/image-2 (1).png>)
 
 We got the creds `abel:angel1`. After connection, the flag can be found in the Desktop
 
@@ -46,20 +46,19 @@ Pivot to another user.
 
 Looking at the home dir, we can see the users on the machine
 
-![](images/image-3.png)
+<img src="../../.gitbook/assets/image-3 (1).png" alt="" width="471">
 
-We couldnt directly cd into any of them, since that would be too easy. There is a juicy looking file in abel's Documents: Minit_Mesyuarat_2026_Password_Guideline.docx
+We couldnt directly cd into any of them, since that would be too easy. There is a juicy looking file in abel's Documents: Minit\_Mesyuarat\_2026\_Password\_Guideline.docx
 
 I downloaded the file using sftp onto my machine to take a look at it.
 
 Some things of note:
 
-![](images/image-5.png)
+<img src="../../.gitbook/assets/image-5.png" alt="" width="503">
 
 I generated a user list using the usernames and also a password list using the passwords I got from the file. I then ran Hydra and got a match `niki:abel_0411@weekndbuk1tj4lil`
 
-
-![](images/image-6.png)
+<img src="../../.gitbook/assets/image-6 (1).png" alt="" width="563">
 
 The second flag is found on Niki's desktop
 
@@ -83,7 +82,7 @@ User niki may run the following commands on spraynpray:
     (ALL) NOPASSWD: /home/niki/Downloads/gen_user.sh
 ```
 
-The contents of gen_user.sh
+The contents of gen\_user.sh
 
 ```
 #!/bin/bash
@@ -106,12 +105,8 @@ test@spraynpray:/home/niki/Downloads$ sudo -l
 User test may run the following commands on spraynpray:
     (ALL : ALL) ALL
     (ALL) ALL
-test@spraynpray:/home/niki/Downloads$ cd ..
-bash: cd: ..: Permission denied
 test@spraynpray:/home/niki/Downloads$ sudo ls /root
 proof.txt  rockyou
 test@spraynpray:/home/niki/Downloads$ sudo cat /root/proof.txt
 OWASPKL{05400e69198b6036bc1c05302435648e}
 ```
-
-

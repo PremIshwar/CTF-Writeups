@@ -1,4 +1,4 @@
-# Reborne (Medium)
+# Reborne
 
 Fist I had to find the the IP address with netdiscover. After that I ran an agressive Nmap scan
 
@@ -54,9 +54,9 @@ ftp> ls
 
 I downloaded both files. The hint was encoded with base64, these are the contents after decoding:
 
-![](images/image-12.png)
+<img src="../../.gitbook/assets/image-12 (1).png" alt="" width="470">
 
---_-- Rick rolled.
+\--\_-- Rick rolled.
 
 The PDF was something about Micro Focus Mainframe, I'll ignore it for now. Taking a look at HTTP, it's just the default Apache page, so I tried fuzzing directories
 
@@ -70,15 +70,16 @@ index.html              [Status: 200, Size: 10960, Words: 3505, Lines: 379, Dura
 server-status           [Status: 403, Size: 280, Words: 20, Lines: 10, Duration: 10ms]
 :: Progress: [4614/4614] :: Job [1/1] :: 0 req/sec :: Duration: [0:00:00] :: Errors: 0 ::
 ```
-![](images/image-13.png)
+
+<img src="../../.gitbook/assets/image-13.png" alt="" width="452">
 
 After looking around for a while, I found this page
 
-![](images/image-14.png)
+<img src="../../.gitbook/assets/image-14.png" alt="" width="507">
 
 I added mainframe.local to my /etc/hosts and got this page:
 
-![](images/image-15.png)
+<img src="../../.gitbook/assets/image-15.png" alt="" width="563">
 
 Going to robots.txt of mainfram.local, we get this:
 
@@ -103,12 +104,11 @@ Disallow: /_home/
 
 Hmm, something at /password.php?id=2
 
-![](images/image-16.png)
+![](../../.gitbook/assets/image-16.png)
 
+Also, found a page at `/lfg/gohere/alittlebitmore/almostthere/`
 
-Also, found a page at  `/lfg/gohere/alittlebitmore/almostthere/`
-
-![](images/image-18.png)
+<img src="../../.gitbook/assets/image-18.png" alt="" width="336">
 
 Going to [ap0k4l1p5.github.io/talesofcred.html ](https://ap0k4l1p5.github.io/talesofcred.html), there is a huge lore dump with some hidden leetspeak. I copied the text and extracted the leetspeak with GPT bro (I am lazy).
 
@@ -129,7 +129,7 @@ Un17yW34v3r5
 
 I then used Hydra to brute force an SSH login, with the username apokalips (since it's the only name I got so far).
 
-![](images/image-17.png)
+![](../../.gitbook/assets/image-17.png)
 
 ```
 apokalips@etherborne:~$ ls
@@ -149,21 +149,20 @@ User apokalips may run the following commands on etherborne:
     (ALL) NOPASSWD: /usr/bin/dash
 
 ```
+
 Looking dash up in GTFOBins
 
-![](images/image-19.png)
+<img src="../../.gitbook/assets/image-19.png" alt="" width="563">
 
 So, I just tried running `sudo dash`
 
-![](images/image-20.png)
-
-![](images/image-21.png)
+![](../../.gitbook/assets/image-21.png)
 
 Looks like the file is locked with GPG. After looking around for a while, I found a [writeup](https://vicevirus.github.io/posts/etherborne-apokalips-box/) of a variant of this machine, and got the hint of Steganography.
 
 I downloaded the image from `index.html` and used stegseek to extract the password
 
-![](images/image-22.png) 
+![](../../.gitbook/assets/image-22.png)
 
 The password is `H3J35'S_F0R3S4W_T4LES`. Using this I unlocked the flag file with `gpg root.txt.gpg`
 
@@ -174,7 +173,7 @@ You think you made it, dont you? :D
 
 Fair enough I guess, since the writeup up until this point was online. Time to look deeper. I did a search: `find / -name "*.txt" 2>/dev/null`
 
-![](images/image-23.png)
+![](../../.gitbook/assets/image-23.png)
 
 There it is :)
 
@@ -185,4 +184,3 @@ Here's what you looking for :D
 
 OWASPKL{N1c3_t0_m33t_y0u}
 ```
-

@@ -1,4 +1,4 @@
-# Detonate 2 (Easy)
+# Detonate 2
 
 In malware analysis, you can either statically analyze the assembly codes directly, or you can create a snapshot of your sandbox and detonate it inside.
 
@@ -8,7 +8,7 @@ Flag format: OWASPKL{xxx}
 
 I did not do as the question asked an opened the file in DIE to look at the strings
 
-![](images/image-10.png)
+![](../../.gitbook/assets/image-10.png)
 
 Similar to Proton 1337, I also recognized the fake flagas and how it stores it in Desktop. It was similar to this: https://pis-blog.gitbook.io/blog-of-pi/hack-10-ctf-2026/rev/detonator
 
@@ -36,6 +36,7 @@ However the flag wasnt the same (I really I thought I got lucky again), which is
   }
 
 ```
+
 It does work the same as the first Detonator. I just need to change the path used.
 
 ```python
@@ -46,4 +47,4 @@ flag = f"OWASPKL{{{md5_hash}}}"
 print(flag)
 ```
 
-All this script does is it create an MD5 hash of the path string, which what the malware was doing here: ```md5(local_48);```. This gives us the flag.
+All this script does is it create an MD5 hash of the path string, which what the malware was doing here: `md5(local_48);`. This gives us the flag.

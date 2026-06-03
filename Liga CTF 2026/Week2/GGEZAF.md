@@ -1,4 +1,4 @@
-# GGEZAF (Easy)
+# GGEZAF
 
 Its 2nd Week already, you can even predict your position isnt? Well then, prove you're not tryhard.
 
@@ -18,13 +18,13 @@ PORT   STATE SERVICE VERSION
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-![](images/image.png)
+<img src="../../.gitbook/assets/image (1).png" alt="" width="464">
 
 FTP aon login successful, got creds.txt which contained `user1337:notsoleet`
 
 Using this, could get SSH login
 
-![](images/image-1.png)
+<img src="../../.gitbook/assets/image-1 (1).png" alt="" width="386">
 
 ## Privelege Escalation
 
@@ -34,6 +34,7 @@ User user1337 may run the following commands on docker-chall-1:
     (ALL) NOPASSWD: /usr/bin/cat, /usr/bin/ls
 
 ```
+
 Great! Now we can read the flag
 
 ```

@@ -1,10 +1,10 @@
-# Lockbox (Easy)
+# Lockbox
 
 Your friend just got into learning Cryptography and is very proud of their first project. They built a program called lockbox that hides a secret message inside a binary, then sent it over with a note:
 
 "i used THREE layers of protection — ROT13, reversed the string, and split the data into separate pieces scattered across memory. there's literally no way to get the message without the proper unlock code. try if you think you're so smart lol"
 
-The only documented way to open it is --unlock <code>, and they never gave you the 64-character unlock code.
+The only documented way to open it is --unlock `, and they never gave you the 64-character unlock code.`
 
 Prove them wrong. Get the message.
 
@@ -21,8 +21,8 @@ _A0Z3Y_3H
 
 I just put into CyberChef to see what i would get
 
-![](images/image-7.png)
+<img src="../../.gitbook/assets/image-7.png" alt="" width="539">
 
 Ok its jumbled up, here's the flag after some rearranging
 
-OWASPKL{3zPz_R0T13_L3M0N_5QU33ZY}
+OWASPKL{3zPz\_R0T13\_L3M0N\_5QU33ZY}

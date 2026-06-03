@@ -1,4 +1,4 @@
-# Deadlocker (Medium) (Post-Event Solve)
+# Deadlocker
 
 You are given a stripped 64‑bit ELF deadlocker and the address of a remote server. The deadlocker contacts the server, receives an encrypted flag, and decrypts it locally. Your task is to reverse‑engineer the binary, understand the cryptographic operations, and write your own client to fetch and decrypt the flag.
 
@@ -6,15 +6,13 @@ Server: lockbox.appsecmy.com 9999
 
 Note: I couldn't solve this challenge on my own as I'm still a Rev beginner. Here's the writeup I referred to for hints: https://www.notion.so/LIGA-CTF-Reverse-Engineering-W1-36a26e605e7e80148a20f032f2fb3da3#36a26e605e7e802baf4dffdb529dca2b
 
-
 Looking at the strings we find a few interesting stuff
 
-![](images/image-11.png)
+![](../../.gitbook/assets/image-11.png)
 
 The base64 string is a fake flag, but we see a nonce being passed and also a key given by AE13
 
 Lets look at the code in Ghidra. This function is called first from entry():
-
 
 ```c
 bool FUN_00101a51(int param_1,long param_2)
@@ -63,19 +61,15 @@ bool FUN_00101a51(int param_1,long param_2)
 }
 
 ```
+
 Overview:
 
 1. `FUN_001017b4()` connects to the server, requests a challenge, and retrieves a nonce + Base64-encoded encrypted flag.
-
-2. `FUN_0010148f()` derives a keystream-like key by performing 8 rounds of bit rotation and XOR operations on a static key (s3cr3t_k3y_g1v3n_by_AE13) using the nonce.
-
-3. `FUN_00101667()` calls FUN_001015d0 to generate an LCG-based pseudorandom keystream and XORs it with the received ciphertext to produce the final plaintext.
-
+2. `FUN_0010148f()` derives a keystream-like key by performing 8 rounds of bit rotation and XOR operations on a static key (s3cr3t\_k3y\_g1v3n\_by\_AE13) using the nonce.
+3. `FUN_00101667()` calls FUN\_001015d0 to generate an LCG-based pseudorandom keystream and XORs it with the received ciphertext to produce the final plaintext.
 4. The final buffer is printed as `Flag: %s`.
 
-
-
-## FUN_001017b4()
+## FUN\_001017b4()
 
 ```c
 undefined8
@@ -150,12 +144,13 @@ FUN_001017b4(char *param_1,uint16_t param_2,long param_3,undefined8 param_4,unde
 ```
 
 1. Creates a TCP socket and connects to the server using the given IP and port.
-2. Sends "GET_CHALLENGE" and receives a response containing a nonce and an encrypted flag.
+2. Sends "GET\_CHALLENGE" and receives a response containing a nonce and an encrypted flag.
 3. Parses the response, extracts:
-  * 16 hex characters → nonce (converted into 8 bytes)
-  * Base64 string → encrypted flag (decoded later in `FUN_001013b3`)
-4. Calls `FUN_001013b3` to process/decrypt the encrypted flag and stores the result length in param_5.
 
+* 16 hex characters → nonce (converted into 8 bytes)
+* Base64 string → encrypted flag (decoded later in `FUN_001013b3`)
+
+4. Calls `FUN_001013b3` to process/decrypt the encrypted flag and stores the result length in param\_5.
 
 ```c
 int FUN_001013b3(char *param_1,long param_2,int param_3)
@@ -194,8 +189,7 @@ int FUN_001013b3(char *param_1,long param_2,int param_3)
 2. Converts Base64 characters into a binary stream
 3. Extracts bytes and writes decoded output
 
-
-## FUN_0010148f()
+## FUN\_0010148f()
 
 ```c
 
@@ -231,28 +225,25 @@ void FUN_0010148f(void *param_1,long param_2,void *param_3,int param_4)
 }
 ```
 
-1. The function runs a loop 8 times. Each round modifies the buffer in two stages:
+1.  The function runs a loop 8 times. Each round modifies the buffer in two stages:
 
-   **(a) Circular bit rotation across the whole buffer (3-bit shift)**
+    **(a) Circular bit rotation across the whole buffer (3-bit shift)**
 
-   * Takes the top 3 bits of the first byte.
-   * Shifts every byte right by 5 and left by 3 across adjacent bytes.
-   * Effectively rotates bits left by 3 across the entire array.
+    * Takes the top 3 bits of the first byte.
+    * Shifts every byte right by 5 and left by 3 across adjacent bytes.
+    * Effectively rotates bits left by 3 across the entire array.
 
-   **(b) XOR with round key byte**
+    **(b) XOR with round key byte**
 
-   * After rotation, each byte is XORed with `nonce[r]` (byte from the nonce)
+    *   After rotation, each byte is XORed with `nonce[r]` (byte from the nonce)
 
-     ```c
-     local_38[i] ^= nonce[r]
-     ```
-   * Same key byte is applied to all positions in that round.
+        ```c
+        local_38[i] ^= nonce[r]
+        ```
+    * Same key byte is applied to all positions in that round.
+2. **Write final result to output buffer** After 8 rounds, the transformed buffer is copied to `param_3`:
 
-2. **Write final result to output buffer**
-   After 8 rounds, the transformed buffer is copied to `param_3`:
-
-
-## FUN_00101667()
+## FUN\_00101667()
 
 ```c
 
@@ -330,32 +321,24 @@ void FUN_001015d0(uint *param_1,int param_2,long param_3)
 ```
 
 1. **Calls `FUN_001015d0` to generate a pseudorandom keystream**
+   *   `FUN_001015d0(param_1, param_2, buffer)` uses an LCG:
 
-   * `FUN_001015d0(param_1, param_2, buffer)` uses an LCG:
-
-     ```c
-     state = state * 0x41c64e6d + 0x3039
-     ```
+       ```c
+       state = state * 0x41c64e6d + 0x3039
+       ```
    * Each iteration produces 1 byte from the low bits of the state.
    * Result: `param_2` bytes of pseudorandom data stored in `local_28`.
-
 2. **XORs input data with generated keystream**
+   *   For each byte:
 
-   * For each byte:
-
-     ```c
-     output[i] = input[i] ^ keystream[i]
-     ```
+       ```c
+       output[i] = input[i] ^ keystream[i]
+       ```
    * `param_1` = input buffer
    * `local_58` = output buffer
    * `local_28` = keystream from LCG
-
 3. **Writes final transformed output**
-
    * The XOR result is copied into `param_4` (output buffer).
-
-
-
 
 ## Solve script
 
