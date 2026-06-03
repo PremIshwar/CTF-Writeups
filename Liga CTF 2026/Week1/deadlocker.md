@@ -9,7 +9,7 @@ Note: I couldn't solve this challenge on my own as I'm still a Rev beginner. Her
 
 Looking at the strings we find a few interesting stuff
 
-![alt text](images/image-11.png)
+![](images/image-11.png)
 
 The base64 string is a fake flag, but we see a nonce being passed and also a key given by AE13
 
