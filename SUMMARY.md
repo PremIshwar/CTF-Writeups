@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Welcome](README.md)
-* [Hack@10 CTF 2026](<README (1).md>)
+* [Hack@10 CTF 2026](hack-10-ctf-2026/README.md)
   * [Boot2Root](hack-10-ctf-2026/boot2root/README.md)
     * [Freshman](<Hack@10 CTF 2026/Boot2Root/Freshman.md>)
     * [Library](<Hack@10 CTF 2026/Boot2Root/Library.md>)
