@@ -24,7 +24,7 @@ After inscpecting the pcap in Wireshark, when following the ICMP traffic, you ca
 
 Knowing this, we can write a tshark command to extract the data from the end of each ICMP packet
 
-![image](https://github.com/user-attachments/assets/ae7c9faf-fab2-4be6-b3ad-da13631e5137)
+![](images/image1.jpeg)
 
 Flag found!
 
@@ -35,7 +35,7 @@ We are presented with a SHREDDED file.
 
 View in HxD hex editor
 
-![image](https://github.com/user-attachments/assets/d5888bfc-62c1-4695-a267-0050b42eb0bf)
+![](images/image2.jpeg)
 
 According the maigc number, this is a jpg file
 
@@ -45,7 +45,7 @@ We can do a simple search and replace for the word meow and replace it with noth
 
 NOTE: HxD didnt managed to get all the "meow", so I had to open the hex in VSCode and manually find some meows and remove them
 
-![flag1](https://github.com/user-attachments/assets/6f21b78e-00f9-4442-867b-3fc16fbc1439)
+![](images/image3.jpeg)
 
 
 
@@ -58,7 +58,7 @@ We are give a huge (and long) GIF file
 
 Using stegsolve's frame browser, I just browsed the frames until I found the one with the flag
 
-![image](https://github.com/user-attachments/assets/a3bad3a0-eea8-4dc6-9e7f-53f50b39aadc)
+![](images/image4.jpeg)
 
 
 
@@ -67,17 +67,17 @@ We are given a GIF that countsdown to a flag reveal, but we can see it
 
 Using stegsolve's frame browser, I just browsed the frames until I found the one two weird frames
 
-![image](https://github.com/user-attachments/assets/45690809-475e-43b0-a314-5c7cc66aad3c)
-![image](https://github.com/user-attachments/assets/17aea0d4-b5a5-4cd0-b4da-45221268bdea)
+![](images/image5.jpeg)
+![](images/image6.jpeg)
 
 After playing with the color maps in stegsolve, I got this out of the two frames
 
-![image](https://github.com/user-attachments/assets/55243fbc-a970-4094-b73b-6bb28cb73da6)
-![image](https://github.com/user-attachments/assets/c991c55d-f412-4cb6-9c69-1680630cc66f)
+![](images/image7.jpeg)
+![](images/image8.jpeg)
 
 I layered the images in GIMP and played with the opacity, finally getting this:
 
-![image](https://github.com/user-attachments/assets/d1b9da11-b207-4916-8805-aa76c743ab0d)
+![](images/image9.jpeg)
 
 
 
@@ -92,13 +92,13 @@ We are given 2 .txt files, passwd and user
 
 All we have to do is find "osman" in user.txt and then find the password of the same line in passwd.txt
 
-![image](https://github.com/user-attachments/assets/62a0cda8-84b3-4bfc-8b9d-4282ae605b11)
+![](images/image10.jpeg)
 
-![image](https://github.com/user-attachments/assets/8e5f5a5e-e30e-492f-8f50-95b6516dc937)
+![](images/image11.jpeg)
 
 Its encrypted with some sort of ROT cipher. After playing around with the key value in CyberChef, we get the flag
 
-![image](https://github.com/user-attachments/assets/81ce5fce-c084-4358-9851-aaafe5536cf7)
+![](images/image12.jpeg)
 
 
 
@@ -113,7 +113,7 @@ We are given a weird file, stones.whatdis
 
 After running the "file" command, we find that it is an EXE
 
-![image](https://github.com/user-attachments/assets/7f5c134b-a3b0-4ebd-adbd-e38b706f09e6)
+![](images/image13.jpeg)
 
 After changing the extension to .exe, I tried running it in my Windows VM.
 
@@ -123,11 +123,11 @@ So, I decided to unpack the .exe file back into python files so I can take a loo
 
 I followed this guide: https://www.youtube.com/watch?v=jmC-FKNRdvk
 
-![image](https://github.com/user-attachments/assets/ac9dd31e-5058-4b20-b708-189320399ecc)
+![](images/image14.jpeg)
 
 Instead of changing the magic number of the .pyc file, I used an online converter https://pylingual.io/ to convert it into readble code
 
-![image](https://github.com/user-attachments/assets/d8881c79-b72f-411a-a9ec-a5fa5fe29b55)
+![](images/image15.jpeg)
 
 This code sends a carfted request to a server containing a part of the flag and a date 
 
@@ -137,19 +137,19 @@ There's a few things here:
 
 Navigating to the IP with a "/flag" at the end returns this
 
-![image](https://github.com/user-attachments/assets/3d94e734-a02e-4eb2-ae9f-0ed3caabf3f8)
+![](images/image16.jpeg)
 
 This youtube link is for an Avengers Endgame clip, with the key "Upload Date"
 
-![image](https://github.com/user-attachments/assets/4417ab65-1ec3-47f0-969b-ddae2706ccd0)
+![](images/image17.jpeg)
 
 With all this information, I made some changes to the code
 
-![image](https://github.com/user-attachments/assets/5f07697d-61f9-41b4-a178-9c0030670a55)
+![](images/image18.jpeg)
 
 I changed the date the code was using to send the request to the upload date of the youtube video
 
-![image](https://github.com/user-attachments/assets/575cec93-83b1-4249-8266-a446faf6b282)
+![](images/image19.jpeg)
 
 Got the flag!
 
