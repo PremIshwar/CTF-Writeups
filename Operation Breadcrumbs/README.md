@@ -63,7 +63,7 @@ This link leads to this a page with the following content:
   
 ```
 
-Cracking the hash `ff9d9e38a38333145e46b49aa4a5f4b6` gives us `IMG27`. So I used a simple script to brute force IMG 1 to IMG100 to see if we get any responses
+Cracking the MD5 hash `ff9d9e38a38333145e46b49aa4a5f4b6` gives us `IMG27`. So I used a simple script to brute force IMG 1 to IMG100 to see if we get any responses
 
 ```python
 import requests
@@ -98,7 +98,7 @@ After while, I got a hit for IMG28
 IMG28 [200]: HIT! -> {"auth_payload":"H4sIAAAAAAAA/wTA7wqCMBAA8He5z6kthUiISiEiUIJGfz6JXtOGbRd6wzR6935fuHkyzTxJrbIQQ/05hdGlwcRMeXFY7cXiuJRVc72bfI6ijZKIREJTCDN46Z61bSCGJ/O7j4NgGAZ/JMeuUj6SCbYyzc4KXad53GH5UGbc9K4qkGytO1OyJrsW8PsHAAD//71EzlGFAAAA","service":"image-processor","status":"ok"}
 ```
 
-Decoding the payload from Base64 and then Gunzip gives some valuable info:
+Decoding the payload from Base64 and then Gunzip using CybeChef gives us some valuable info:
 
 ```
 {"X-TCM-Token":"fxP34VgcBmzN_H9F12J7TbgWYmN0c1k4B4o1Boz3","listing":"https://www.youtube.com/@TCMSecurityAcademy?sub_confirmation=1"}
