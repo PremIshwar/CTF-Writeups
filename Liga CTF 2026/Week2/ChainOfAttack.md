@@ -22,6 +22,8 @@ Port 9090 is a webmin login page
 
 <img src="../../.gitbook/assets/image-11 (1).png" alt="" width="563">
 
+&#x20;
+
 <img src="../../.gitbook/assets/image-24.png" alt="" width="563">
 
 After looking around annd not being able to get a foothold, I looked at the machine itself and noticed we have 2 possible usernames
@@ -34,6 +36,8 @@ profapokalips
 I tried some default passwords first and managed to get a login for both accounts using `admin` (which also was in the machine message)
 
 <img src="../../.gitbook/assets/image-25.png" alt="" width="521">
+
+&#x20;
 
 <img src="../../.gitbook/assets/image-26.png" alt="" width="563">
 

@@ -49,7 +49,7 @@
   * [Twelve - View Basket](<SherpaCTF 2025/twelve.md>)
   * [Two - First Web Exploitation](<SherpaCTF 2025/two.md>)
   * [Zero - Sanity Check](<SherpaCTF 2025/zero.md>)
-* [Wargames 2024]()
+* [Wargames 2024](<README (1).md>)
   * [Wargames 2024 Writeup - DaemonHunter](<Wargames 2024/README.md>)
 * [picoCTF-Practice](picoctf-practice/README.md)
   * [forensics](picoctf-practice/forensics/README.md)

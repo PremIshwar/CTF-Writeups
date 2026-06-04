@@ -1,14 +1,14 @@
-# Operation Breadcrumbs
+# TCM Security Operation Breadcrumbs
 
-![](images/image.png)
+<img src="../.gitbook/assets/image (2).png" alt="" width="563">
 
-This was a fun little CTF event held by TCM Security. Short and sweet :) 
+This was a fun little CTF event held by TCM Security. Short and sweet :)
 
-![](images/image-1.png)
+<img src="../.gitbook/assets/image-1 (2).png" alt="" width="563">
 
 Clicking download flag only gives us an error
 
-![](images/image-2.png)
+![](<../.gitbook/assets/image-2 (2).png>)
 
 Capturing the Download Flag request on Burpsuite:
 
@@ -46,7 +46,6 @@ X-Debug-Trace: aHR0cHM6Ly9naXN0LmdpdGh1YnVzZXJjb250ZW50LmNvbS9NYWx3YXJlQ3ViZS9mY
 Decoding the `X-Debug-Trace` Base 64 gives us:
 
 https://gist.githubusercontent.com/MalwareCube/fb07434c1fba3b9143cae8f01309a57f/raw/59814d0f41581325bae5c80b0de9844963d44b47/flag-service-debug-notes.md
-
 
 This link leads to this a page with the following content:
 
@@ -92,6 +91,7 @@ for i in range(1, 100):
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
 ```
+
 After while, I got a hit for IMG28
 
 ```
@@ -106,7 +106,7 @@ Decoding the payload from Base64 and then Gunzip using CybeChef gives us some va
 
 The youtube link leads to TCM Security's YouTube channel, and when looking at their links, we find the next breadcrumb:
 
-![](images/image-3.png)
+<img src="../.gitbook/assets/image-3 (2).png" alt="" width="523">
 
 `https://ctf.tcmsecurity.com/tcm-prod-media/4ee5f8ff6d6a23deb9d829479b54c8e3.jpg`
 
@@ -123,7 +123,7 @@ However, clicking this link, we are met with this:
 
 I was stuck here for a long time, trying many things. After a few days, I booted up my VM again and looked at the payload once more. The next step was quite straightforward, we send a request to the link with `X-TCM-Token:fxP34VgcBmzN_H9F12J7TbgWYmN0c1k4B4o1Boz3` in the header.
 
-![](images/image-4.png)
+![](<../.gitbook/assets/image-4 (1).png>)
 
 Seeing JFIF in the response, it seems we're getting a JPEG! I downloaded it with curl.
 
@@ -133,7 +133,7 @@ curl -o image.jpg \
 "https://ctf.tcmsecurity.com/tcm-prod-media/4ee5f8ff6d6a23deb9d829479b54c8e3.jpg"
 ```
 
-![](images/image-5.png)
+<img src="../.gitbook/assets/image-5 (1).png" alt="" width="563">
 
 This is the image we got. Looking into its metadata with exiftool, we find some coordinates:
 
@@ -145,18 +145,18 @@ GPS Position                    : 34 deg 8' 2.76" N, 118 deg 19' 17.40" W
 
 Putting these coordinates into Google Maps, it brings us to the iconic Hollywood Sign
 
-![](images/image-6.png)
+<img src="../.gitbook/assets/image-6 (2).png" alt="" width="563">
 
 Going back to the image, there seems to be a ZIP archive in the image, I extracted it using `binwalk`
 
-![](images/image-7.png)
+![](<../.gitbook/assets/image-7 (2).png>)
 
-![](images/image-8.png)
+<img src="../.gitbook/assets/image-8 (2).png" alt="" width="561">
 
 There was a `flag.xor` file in the extracted folder. I copied its contents and put it into CyberChef with the password "HOLLYWOOD" and got the flag!
 
-![](images/image-9.png)
+<img src="../.gitbook/assets/image-9 (2).png" alt="" width="563">
 
 Flag: `TCM{WH3R3_DR34M5_ARE_M4D3}`
 
-![](images/image-10.png)
+![](<../.gitbook/assets/image-10 (2).png>)
