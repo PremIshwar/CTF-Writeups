@@ -48,7 +48,7 @@ Decoding the `X-Debug-Trace` Base 64 gives us:
 https://gist.githubusercontent.com/MalwareCube/fb07434c1fba3b9143cae8f01309a57f/raw/59814d0f41581325bae5c80b0de9844963d44b47/flag-service-debug-notes.md
 
 
-This link leads to this page:
+This link leads to this a page with the following content:
 
 ```
 # upload worker - queue stalls
@@ -104,13 +104,13 @@ Decoding the payload from Base64 and then Gunzip gives some valuable info:
 {"X-TCM-Token":"fxP34VgcBmzN_H9F12J7TbgWYmN0c1k4B4o1Boz3","listing":"https://www.youtube.com/@TCMSecurityAcademy?sub_confirmation=1"}
 ```
 
-The youtube link leads to TCM Security's YouTube channel, and when looking at their, link, we find the next breadcrumb:
+The youtube link leads to TCM Security's YouTube channel, and when looking at their links, we find the next breadcrumb:
 
 ![](images/image-3.png)
 
 `https://ctf.tcmsecurity.com/tcm-prod-media/4ee5f8ff6d6a23deb9d829479b54c8e3.jpg`
 
-However, we clicking this link, we are met with this:
+However, clicking this link, we are met with this:
 
 ```
 <Error>
