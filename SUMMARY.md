@@ -2,7 +2,7 @@
 
 * [Welcome](README.md)
 * [Breachlab](<Breachlab/README.md>)
-  * [Ghost II](<Breachlab/Ghost_II.md>)
+  * [Ghost II](<Breachlab/Ghost_II/README.md>)
     * [Act I — Foothold](<Breachlab/Ghost_II/ActI.md>)
     * [Act II — Pivot](<Breachlab/Ghost_II/ActII.md>)
     * [Act III — Secrets Sprawl](<Breachlab/Ghost_II/ActIII.md>)
