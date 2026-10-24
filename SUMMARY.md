@@ -1,6 +1,12 @@
 # Table of contents
 
 * [Welcome](README.md)
+* [Breachlab](<Breachlab/README.md>)
+  * [Ghost II](<Breachlab/Ghost_II.md>)
+    * [Act I — Foothold](<Breachlab/Ghost_II/ActI.md>)
+    * [Act II — Pivot](<Breachlab/Ghost_II/ActII.md>)
+    * [Act III — Secrets Sprawl](<Breachlab/Ghost_II/ActIII.md>)
+    * [Act IV — Supply Chain](<Breachlab/Ghost_II/ActIV.md>)
 * [Liga CTF 2026](<Liga CTF 2026/README.md>)
   * [Reverse Engineering](liga-ctf-2026/reverse-engineering/README.md)
     * [UnpackMe](<Liga CTF 2026/Week1/unpackme.md>)
